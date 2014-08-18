@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.persistence.SequenceGenerator;
 
 @Entity(name = "Pessoa")
@@ -23,14 +24,19 @@ public class Pessoa {
 	@Column
 	private String email;
 	
+	@Column
+	@NotNull
+	private String password;
+	
 	// Construtor vazio para o Hibernate criar os objetos
 	public Pessoa (){
 		
 	}
 	
-	public Pessoa (String nome, String email){
+	public Pessoa (String nome, String email, String password){
 		this.email = email;
 		this.nome = nome;
+		this.password = password;
 	}
 
 	public String getNome() {
@@ -56,6 +62,14 @@ public class Pessoa {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	@Override
 	public int hashCode() {
@@ -68,24 +82,12 @@ public class Pessoa {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if(!(obj instanceof Pessoa)){
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
+		}else{
+			Pessoa pessoa = (Pessoa) obj;
+			return (pessoa.getEmail().equals(this.email));
+		}
 	}	
 
 }

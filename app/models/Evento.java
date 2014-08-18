@@ -5,9 +5,16 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.IndexColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 
 
@@ -113,7 +120,6 @@ public class Evento implements Comparable<Evento> {
 		return this.PessoasQueConfirmaram.size();
 	}
 	
-	@Override
 	public int compareTo(Evento evento) {
 		if (this.PessoasQueConfirmaram.size() > evento.numDePessoasQueConfirmaram()) {
 		      return -1;

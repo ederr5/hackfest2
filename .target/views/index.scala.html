@@ -1,7 +1,36 @@
-@(message: String)
+@(message: String, sistema: Sistema)
 
-@main("Welcome to Play") {
+@main("Home Page") {
 
-    @play20.welcome(message, style = "Java")
+	
+
+	<div class="col-sm-12">
+    	<legend>
+    	<a href="/logout" class="btn btn-danger pull-right"> LogOut</a>
+        <h3 class="text-center"> Bem Vindo(a)! @session.get("user") </h3>
+        </legend>
+        
+    </div>
+    <center><img class="centralizar" src="@routes.Assets.at("images/logo.png")" /> </center>
+        <ul class="nav nav-pills">
+          <li class="active"><a href="/""> In&iacute;cio</a></li>
+          <li><a href="/cadastro">Cadastrar um novo Hackfest</a></li>
+          
+        </ul>	
+        <div class="container form-horizontal panel panel-primary text-info" >
+        
+       
+		<center><h2><b>Sistema de Hackfests</b></h2></center>
+		<h4>Esse sistema lhe ajudar&aacute; a promover Hackfests de tecnologias e temas que sejam interessantes. 
+		<br> <br>  Um hackfest (ou hackathon) &eacute; um evento de programadores interessados em um tema ou tecnologia, que se re&uacute;nem e constroem algo no tema durante um dia.       
+        <br> <br> Participe! Essas s&atilde;o &oacute;timas oportunidades para aprender novas tecnologias e desenvolver o seu Network!    
+        </h4>
+        </div>      
+        
+        @eventos(sistema, "Engenharia de Software")
+        @eventos(sistema, "Sistemas da Informacao")
+        @eventos(sistema, "Banco de Dados")
+        @eventos(sistema, "Computacao Desplugada")
+        @eventos(sistema, "Desenvolvimento para Web")
 
 }
