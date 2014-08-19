@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.persistence.SequenceGenerator;
 
+import models.exceptions.PessoaInvalidaException;
+
 @Entity(name = "Pessoa")
 public class Pessoa {
 	// Gerador de Sequencia para o Id
@@ -43,7 +45,7 @@ public class Pessoa {
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String nome) throws PessoaInvalidaException {
 		this.nome = nome;
 	}
 

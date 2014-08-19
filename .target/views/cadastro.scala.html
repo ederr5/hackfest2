@@ -1,6 +1,7 @@
 @(sistema: Sistema)
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<title>Sistema de Hackfests</title>
 		<link href="@routes.Assets.at("css/bootstrap.min.css")" rel="stylesheet" media="screen">
@@ -15,8 +16,25 @@
 		
 	</head>
 	<body>	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	 	<div class="container">
+	 		<div class="navbar-header">
+	 			<button type="button" class="navbar-toggle"
+					data-toggle="collapse" data-target=".navbar-collapse">
+			    </button>
+				<a class="navbar-brand" href="/"><h3 class="text-center"> Bem Vindo(a)! @session.get("user") </h3>
+				</a>
+ 				</div>
+ 				 <a href="/logout" class="btn btn-danger pull-right"> LogOut</a>
+		  </div>
+		  
+		</div>
+			<br>
+			<br>   
+     		<br>
+     		
 		<center><img class="centralizar" src="@routes.Assets.at("images/logo.png")" /> </center>
-        <ul class="nav nav-pills">
+        <ul class="nav nav-tabs">
           <li><a href="/""> In&iacute;cio</a></li>
           <li class="active"><a href="/cadastro">Cadastrar um novo Hackfest</a></li>
           

@@ -1,6 +1,22 @@
 @(form: Form[Pessoa])
 
 @main("Login Page") {
+<div class="navbar navbar-inverse navbar-fixed-top">
+	 	<div class="container">
+	 		<div class="navbar-header">
+	 			<button type="button" class="navbar-toggle"
+					data-toggle="collapse" data-target=".navbar-collapse">
+			    </button>
+				<a class="navbar-brand" href="/"><h3 class="text-center"> Bem Vindo(a)! @session.get("user") </h3>
+				</a>
+ 				</div>
+ 				 <a href="/logout" class="btn btn-danger pull-right"> LogOut</a>
+		  </div>
+		  
+		</div>
+			<br>
+			<br>   
+     		<br>
 
    <div class="col-sm-4 col-sm-offset-4">
    @if(flash.contains("fail")) {
